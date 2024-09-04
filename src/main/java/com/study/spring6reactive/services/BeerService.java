@@ -9,4 +9,10 @@ public interface BeerService {
     Flux<BeerDTO> getAllBeers();
 
     Mono<BeerDTO> getBeerById(Integer id);
+
+    Mono<BeerDTO> saveNewBeer(BeerDTO beerDTO);
+
+    Mono<BeerDTO> updateBeer(Integer id, BeerDTO beerDTO);
+
+    Mono<BeerDTO> patchBeer(Integer id, BeerDTO beerDTO);
 }
