@@ -69,6 +69,6 @@ public class BeerController {
     public Mono<ResponseEntity<Void>> deleteBeer(@PathVariable("id") Integer id) {
         return beerService
                 .deleteBeer(id)
-                .then(Mono.fromCallable(() -> ResponseEntity.noContent().build()));
+                .thenReturn(ResponseEntity.noContent().build());
     }
 }

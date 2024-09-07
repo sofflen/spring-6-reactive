@@ -7,20 +7,20 @@ import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest;
 import org.springframework.context.annotation.Import;
 import reactor.test.StepVerifier;
 
-import static com.study.spring6reactive.utils.TestUtils.getTestBeer;
+import static com.study.spring6reactive.utils.TestUtils.getTestCustomer;
 
 @DataR2dbcTest
 @Import(DatabaseConfig.class)
-class BeerRepositoryTest {
+class CustomerRepositoryTest {
 
     @Autowired
-    BeerRepository beerRepository;
+    CustomerRepository customerRepository;
 
     @Test
-    void testSaveNewBeer() {
-        StepVerifier.create(beerRepository
-                        .save(getTestBeer()))
-                .expectNextMatches(beer -> beer.getId() != null)
+    void testSaveNewCustomer() {
+        StepVerifier.create(customerRepository
+                        .save(getTestCustomer()))
+                .expectNextMatches(customer -> customer.getId() != null)
                 .verifyComplete();
     }
 }
